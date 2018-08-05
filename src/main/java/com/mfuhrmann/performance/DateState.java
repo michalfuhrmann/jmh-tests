@@ -1,4 +1,4 @@
-package org.sample;
+package com.mfuhrmann.performance;
 
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;

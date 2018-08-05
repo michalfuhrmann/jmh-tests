@@ -1,9 +1,8 @@
-package org.sample;
+package com.mfuhrmann.performance;
 
 import org.openjdk.jmh.annotations.Benchmark;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateBenchmark {
