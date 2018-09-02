@@ -1,5 +1,6 @@
-package com.mfuhrmann.performance;
+package com.mfuhrmann.performance.stream;
 
+import com.mfuhrmann.performance.ArrayState;
 import org.openjdk.jmh.annotations.Benchmark;
 
 import java.util.ArrayList;
