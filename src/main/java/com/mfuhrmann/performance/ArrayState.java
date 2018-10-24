@@ -19,6 +19,11 @@ public class ArrayState {
     public List<Integer> intList;
     public List<String> arrayList;
     public List<String> linkedList;
+    public List<Wrapper> wrapperList;
+    public List<Wrapper> wrapperList1PercentDuplicates;
+    public List<Wrapper> wrapperList10PercentDuplicates;
+    public List<Wrapper> wrapperList33PercentDuplicates;
+    public List<Wrapper> wrapperList50PercentDuplicates;
 
     public double[] values = new double[2000000];
 
@@ -36,5 +41,39 @@ public class ArrayState {
         smallList = testList.stream().limit(100).collect(Collectors.toCollection(ArrayList::new));
 
         intList = IntStream.range(0, 1_000_000).boxed().collect(Collectors.toCollection(ArrayList::new));
+
+        wrapperList = IntStream.range(0, 1000)
+                .mapToObj(Wrapper::new)
+                .collect(Collectors.toList());
+
+        wrapperList1PercentDuplicates = IntStream.range(0, 1000)
+                .map(i -> i % 100)
+                .mapToObj(Wrapper::new)
+                .collect(Collectors.toList());
+
+        wrapperList10PercentDuplicates = IntStream.range(0, 1000)
+                .map(i -> i % 10)
+                .mapToObj(Wrapper::new)
+                .collect(Collectors.toList());
+        wrapperList33PercentDuplicates = IntStream.range(0, 1000)
+                .map(i -> i % 3)
+                .mapToObj(Wrapper::new)
+                .collect(Collectors.toList());
+        wrapperList50PercentDuplicates = IntStream.range(0, 30_000_000)
+                .map(i -> i % 2)
+                .mapToObj(Wrapper::new)
+                .collect(Collectors.toList());
+    }
+
+    public static class Wrapper {
+        private final int value;
+
+        public Wrapper(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
     }
 }
